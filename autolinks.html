@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Open Links in New Tabs</title>
+</head>
+<body>
+    <h1>Open Links in New Tabs</h1>
+
+    <button onclick="startOpeningLinks()">Start Opening Links</button>
+
+    <script>
+        function openLinksInNewTabs() {
+            for (let i = 1; i <= 5; i++) {
+                // You can change the URL to the desired link you want to open.
+                let urlToOpen = "https://www.google.com" ;
+
+                // Open the link in a new tab/window.
+                window.open(urlToOpen, "_blank");
+            }
+        }
+
+        function startOpeningLinks() {
+            let count = 0;
+
+            function openLinksLoop() {
+                if (count < 5) {
+                    openLinksInNewTabs();
+                    count++;
+                } else {
+                    clearInterval(interval);
+                }
+            }
+
+            openLinksLoop(); // Call the function initially
+            let interval = setInterval(openLinksLoop, 1000); // Call the function every 1000ms (1 second)
+        }
+    </script>
+</body>
+</html>
